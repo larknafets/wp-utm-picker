@@ -1,5 +1,5 @@
 # wp-utm-picker
-This plugin picks up UTM tracking data from a URL and saves it to cookies. The UTM parameters can be read out and used by shortcodes.
+This is a WordPress plugin which picks up UTM tracking data from an URL and saves it to cookies. The UTM parameters can be read out and used by shortcodes.
 
 The following parameters will be extracted from URL:
 - utm_source
