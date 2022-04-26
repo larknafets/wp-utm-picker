@@ -33,36 +33,54 @@ var cookie_lifetime = 30; // lifetime of cookies in days
 // set cookie for last page every time a new page is opened
 create_cookie("_t_last", window.location.href.split('?')[0], cookie_lifetime);
 
-// actual page is read out by php every time a new page is opened
-
 // get landing page if landing page cookie is not already set and also set referrer in this case
 if(read_cookie("_t_land")) {
   // do nothing
 } else {
   create_cookie("_t_land", window.location.href.split('?')[0], cookie_lifetime);
-  if(document.referrer.indexOf(location.protocol + "//" + location.host) === 0){
+  if(document.referrer.indexOf(location.protocol + "//" + location.host) === 0) {
   	create_cookie("_t_ref", document.referrer, cookie_lifetime);
   }
 }
 
 // get utm parameters if utm source cookie is not already set
 if(get_parameter("utm_source") != "") {
-	create_cookie("_t_utmz", get_parameter("utm_source")+"|"+get_parameter("utm_medium")+"|"+get_parameter("utm_term")+"|"+get_parameter("utm_content")+"|"+get_parameter("utm_campaign")+"|"+get_parameter("utm_id"), cookie_lifetime);
+  if(read_cookie("_t_utmz")) {
+    // do nothing
+  } else {
+    create_cookie("_t_utmz", get_parameter("utm_source")+"|"+get_parameter("utm_medium")+"|"+get_parameter("utm_term")+"|"+get_parameter("utm_content")+"|"+get_parameter("utm_campaign")+"|"+get_parameter("utm_id"), cookie_lifetime);
+  }
 }
 
 // set misc cookies if not already set
 if(get_parameter("fbclid") != "") {
-	create_cookie("_t_fbclid", get_parameter("fbclid"), cookie_lifetime);
+  if(read_cookie("_t_fbclid")) {
+    // do nothing
+  } else {
+	  create_cookie("_t_fbclid", get_parameter("fbclid"), cookie_lifetime);
+  }
 }
 
 if(get_parameter("gclid") != "") {
-	create_cookie("_t_gclid", get_parameter("gclid"), cookie_lifetime);
+  if(read_cookie("_t_gclid")) {
+    // do nothing
+  } else {
+  	create_cookie("_t_gclid", get_parameter("gclid"), cookie_lifetime);
+  }
 }
 
 if(get_parameter("dclid") != "") {
-	create_cookie("_t_dclid", get_parameter("dclid"), cookie_lifetime);
+  if(read_cookie("_t_dclid")) {
+    // do nothing
+  } else {
+  	create_cookie("_t_dclid", get_parameter("dclid"), cookie_lifetime);
+  }
 }
 
 if(get_parameter("epik") != "") {
-	create_cookie("_t_epik", get_parameter("epik"), cookie_lifetime);
+  if(read_cookie("_t_epik")) {
+    // do nothing
+  } else {
+    create_cookie("_t_epik", get_parameter("epik"), cookie_lifetime);
+  }
 }
